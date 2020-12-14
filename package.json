@@ -1,0 +1,17 @@
+{
+  "name": "servos",
+  "version": "1.0.0",
+  "description": "tests amb servos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adafruit-pca9685": "^0.1.4",
+    "express": "^4.17.1",
+    "i2c-bus": "^5.2.1",
+    "pca9685": "^4.0.3"
+  }
+}

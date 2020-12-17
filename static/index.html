@@ -45,7 +45,7 @@
     <div class="row">
       <div class="col">
         <ul class="servos">
-          <li>
+          <li class="active">
             <label for="servo1">Servo1</label>
             <input type="range" value="0" onchange="printPosition(this)" id="servo1" />
           </li>
@@ -81,6 +81,7 @@
       </div>
     </div>
     <div class="row">
+
       <div class="col">
         <button type="button" class="btn btn-primary" onclick="resetServos()" >Reset all servos</button>
       </div>

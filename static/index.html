@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="ca">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>R2D2</title>
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <script type="text/javscript" src="../js/bootstrap.js"></script>
-</head>
-
-<body>
+  </head>
+  <script>
+    function cridaServo(e) {
+      e.preventDefault();
+      let servo = document.querySelector("#numServo").value,
+        posicio = document.querySelector("#valorServo").value;
+      fetch(`/?servo=${servo}&posicio=${posicio}`);
+    }
+  </script>
+  <body>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>R2D2 - Panell de control</h1>
-
-            </div>
+      <div class="row">
+        <div class="col">
+          <h1>R2D2 - Panell de control</h1>
         </div>
-        <div class="row">
-            <div class="col">
-                <form>
-                    <div class="mb-3">
-                        <h2>Servos cap</h2>
-                    </div>
-                    <div class="mb-3">
-                      <label for="numServo" class="form-label">Introdueix el numero de comporta que vols obrir</label>
-                      <input type="email" class="form-control" id="numServo" aria-describedby="servoInfo">
-                      <div id="servoInfo" class="form-text">un valor de l'1 al 6</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="valorServo" class="form-label">Introdueix el valor al que vols posar el servo 500-1000</label>
-                      <input type="text" class="form-control" id="valorServo">
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Loop</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Executar</button>
-                  </form>
+      </div>
+      <div class="row">
+        <div class="col">
+          <form onsubmit="cridaServo(event)">
+            <div class="mb-3">
+              <h2>Servos cap</h2>
             </div>
+            <div class="mb-3">
+              <label for="numServo" class="form-label"
+                >Introdueix el numero de comporta que vols obrir</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="numServo"
+                aria-describedby="servoInfo"
+              />
+              <div id="servoInfo" class="form-text">un valor de l'1 al 6</div>
+            </div>
+            <div class="mb-3">
+              <label for="valorServo" class="form-label"
+                >Introdueix el valor al que vols posar el servo 500-1000</label
+              >
+              <input type="text" class="form-control" id="valorServo" />
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1">Loop</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Executar</button>
+          </form>
         </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>

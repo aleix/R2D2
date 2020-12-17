@@ -1,4 +1,4 @@
-const servos = [1, 2, 3, 4, 5, 6, 7];
+const servos = [0,1, 2, 3, 4, 5];
 function cridaServo(e) {
     e.preventDefault();
     let servo = document.querySelector("#numServo").value,
@@ -24,6 +24,7 @@ function resetServos() {
         fetch(`/?servo=${index}&position=${zeroPosition}`);      
     }
 }
+
 function removeAllActive() {
     let servosLi = document.querySelectorAll('.servos li');
     for (let index = 0; index < servosLi.length; index++) {

@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 
  if(Number.isInteger(channel)&&Number.isInteger(pulseLength)){
   console.log('servo: ' + channel + ' posicio: ' + pulseLength);
+  //servoLoop();
   pwm.setPulseLength(channel, pulseLength);
  }else{
    console.log('Servo or position has bad values');
@@ -63,11 +64,11 @@ app.use('/static', express.static('static'));
 
 // pulse lengths in microseconds (theoretically, 1.5 ms
 // is the middle of a typical servo's range)
-var pulseLengths = [1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1200, 1300, 1400, 1500, 1600, 1700];
+var pulseLengths = [1800, 1700, 1600, 1500, 1400, 1300, 1200, 1200, 1300, 1400, 1500, 1600, 1700];
 //var pulseLengths = [1800];
-var steeringChannel0 = 0;
-var steeringChannel1 = 1;
-var steeringChannel2 = 2;
+var steeringChannel0 = 1;
+var steeringChannel1 = 2;
+var steeringChannel2 = 3;
 
 
 // variables used in servoLoop
@@ -89,6 +90,8 @@ function servoLoop() {
   nextPulse = (nextPulse + 1) % pulseLengths.length;
   pwm.setPulseLength(steeringChannel2, pulseLengths[nextPulse]);
   nextPulse = (nextPulse + 1) % pulseLengths.length;
+  console.log('LABORATORIS ENGINYERIA 2020');
+  console.log('...........................');
 }
 
 

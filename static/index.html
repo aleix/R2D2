@@ -1,63 +1,93 @@
 <!DOCTYPE html>
 <html lang="ca">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>R2D2</title>
-    <link rel="stylesheet" href="../css/bootstrap.css" />
-    <script type="text/javscript" src="../js/bootstrap.js"></script>
-  </head>
-  <script>
-    function cridaServo(e) {
-      e.preventDefault();
-      let servo = document.querySelector("#numServo").value,
-        posicio = document.querySelector("#valorServo").value;
-      fetch(`/?servo=${servo}&posicio=${posicio}`);
-    }
-  </script>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>R2D2 - Panell de control</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <form onsubmit="cridaServo(event)">
-            <div class="mb-3">
-              <h2>Servos cap</h2>
-            </div>
-            <div class="mb-3">
-              <label for="numServo" class="form-label"
-                >Introdueix el numero de comporta que vols obrir</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="numServo"
-                aria-describedby="servoInfo"
-              />
-              <div id="servoInfo" class="form-text">un valor de l'1 al 6</div>
-            </div>
-            <div class="mb-3">
-              <label for="valorServo" class="form-label"
-                >Introdueix el valor al que vols posar el servo 500-1000</label
-              >
-              <input type="text" class="form-control" id="valorServo" />
-            </div>
-            <div class="mb-3 form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label class="form-check-label" for="exampleCheck1">Loop</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Executar</button>
-          </form>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R2D2</title>
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script type="text/javscript" src="../js/bootstrap.js"></script>
+  <script type="text/javascript" src="../js/R2D2.js"></script>
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>R2D2 - Panell de control</h1>
       </div>
     </div>
-  </body>
+    <!-- <div class="row">
+      <div class="col">
+        <form onsubmit="cridaServo(event)">
+          <div class="mb-3">
+            <h2>Servos cap</h2>
+          </div>
+          <div class="mb-3">
+            <label for="numServo" class="form-label">Introdueix el numero de comporta que vols obrir</label>
+            <input type="text" class="form-control" id="numServo" aria-describedby="servoInfo" />
+            <div id="servoInfo" class="form-text">un valor de l'1 al 6</div>
+          </div>
+          <div class="mb-3">
+            <label for="valorServo" class="form-label">Introdueix el valor al que vols posar el servo 500-1000</label>
+            <input type="text" class="form-control" id="valorServo" />
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+            <label class="form-check-label" for="exampleCheck1">Loop</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Executar</button>
+        </form>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col">
+        <ul class="servos">
+          <li>
+            <label for="servo1">Servo1</label>
+            <input type="range" value="0" onchange="printPosition(this)" id="servo1" />
+          </li>
+          <li>
+            <label for="servo2">Servo2</label>
+            <input type="range" value="0" onchange="printPosition(this)" id="servo2" />
+          </li>
+          <li>
+            <label for="servo3">Servo3</label>
+            <input type="range" value="0" onchange="printPosition(this)" id="servo3" />
+          </li>
+          <li>
+            <label for="servo4">Servo4</label>
+            <input type="range" value="0" onchange="printPosition(this)" id="servo4" />
+          </li>
+          <li>
+            <label for="servo5">Servo5</label>
+            <input type="range" value="0" onchange="printPosition(this)" id="servo5" />
+          </li>
+          <li>
+            <label for="servo6">Servo6</label>
+            <input type="range" value="0" onchange="printPosition(this)" id="servo6" />
+          </li>
+          <li>
+            <label for="servo7">Servo7</label>
+            <input type="range" value="0" onchange="printPosition(this)" id="servo7" />
+          </li>
+        </ul>
+       
+      </div>
+      <div class="col servoPosition">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary" onclick="resetServos()" >Reset all servos</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
 </html>

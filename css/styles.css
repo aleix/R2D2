@@ -1,0 +1,19 @@
+.servos {
+    list-style: none;
+}
+
+.line {
+    width: 80%;
+    height: 3px;
+    background-color: black;
+    align-self: flex-end; 
+    /* transform: rotate(45deg);   */
+    transform-origin: 0% 0%; 
+}
+
+.servoPosition {
+    display: flex;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding-left:0;
+}

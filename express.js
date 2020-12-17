@@ -27,7 +27,7 @@ const pwm = new Pca9685Driver(options, function (err) {
 app.get('/', (req, res) => {
   res.send('Hello World!')
   let channel = parseInt(req.query.servo) || null;
-  let pulseLength = parseInt(req.query.posicio) || null;
+  let pulseLength = parseInt(req.query.position) || null;
 
   
 
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
   console.log('servo: ' + channel + ' posicio: ' + pulseLength);
   pwm.setPulseLength(channel, pulseLength);
  }else{
-   console.log('el servol o la posició no són chachis!');
+   console.log('Servo or position has bad values');
  }
 
   // pwm = new Pca9685Driver(options, function startLoop(err, servo, posicio) {

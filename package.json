@@ -12,6 +12,7 @@
     "adafruit-pca9685": "^0.1.4",
     "express": "^4.17.1",
     "i2c-bus": "^5.2.1",
+    "node-omxplayer": "^0.6.1",
     "pca9685": "^4.0.3"
   }
 }

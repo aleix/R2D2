@@ -18,31 +18,7 @@
       <div class="col">
         <h1>R2D2 - Panell de control</h1>
       </div>
-    </div>
-    <!-- <div class="row">
-      <div class="col">
-        <form onsubmit="cridaServo(event)">
-          <div class="mb-3">
-            <h2>Servos cap</h2>
-          </div>
-          <div class="mb-3">
-            <label for="numServo" class="form-label">Introdueix el numero de comporta que vols obrir</label>
-            <input type="text" class="form-control" id="numServo" aria-describedby="servoInfo" />
-            <div id="servoInfo" class="form-text">un valor de l'1 al 6</div>
-          </div>
-          <div class="mb-3">
-            <label for="valorServo" class="form-label">Introdueix el valor al que vols posar el servo 500-1000</label>
-            <input type="text" class="form-control" id="valorServo" />
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-            <label class="form-check-label" for="exampleCheck1">Loop</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Executar</button>
-        </form>
-      </div>
-    </div> -->
-    
+    </div> 
     <div class="row">
       <div class="col">
         <ul class="servos">
@@ -78,9 +54,11 @@
       </div>
     </div>
     <div class="row">
-
       <div class="col">
         <button type="button" class="btn btn-primary" onclick="resetServos()" >Reset all servos</button>
+        <button type="button" class="btn btn-primary" onclick="playVideo()" id="playPause" >Play Video</button>
+        <button type="button" class="btn btn-primary" onclick="volumeUp()" >Volume Up</button>
+        <button type="button" class="btn btn-primary" onclick="volumeDown()" >Volume Down</button>
       </div>
     </div>
   </div>

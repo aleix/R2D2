@@ -31,3 +31,20 @@ function removeAllActive() {
         servosLi[index].classList.remove('active');
     }
 }
+function playVideo(video){
+    
+    if(document.querySelector("#playPause").innerHTML==='Play Video'){
+        document.querySelector("#playPause").innerHTML='Pause Video';
+        fetch('/?playVideo=true'); 
+    }else{
+        document.querySelector("#playPause").innerHTML='Play Video';
+        fetch('/?pauseVideo=true'); 
+    }
+
+}
+function volumeUp(){
+    fetch('/?volumeUp=true');
+}
+function volumeDown(){
+    fetch('/?volumeDown=true');
+}

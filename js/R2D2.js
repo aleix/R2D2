@@ -1,4 +1,4 @@
-const servos = [0,1, 2, 3, 4, 5];
+const servos = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 function cridaServo(e) {
     e.preventDefault();
     let servo = document.querySelector("#numServo").value,
@@ -6,7 +6,13 @@ function cridaServo(e) {
     fetch(`/?servo=${servo}&posicio=${posicio}`);
 }
 function printPosition(obj) {
-    let position = 2000 - (obj.value * 10);
+    //let position = 2000 - (obj.value * 10);
+    let position = 1600 + (obj.value * 10);
+    console.log('position: ' + position);
+    if (position > 2000) {
+         position = 2000;
+     }
+    
     let degrees = obj.value * -1;
     let servo = parseInt(obj.id.slice(5));//removing servo from id
     removeAllActive();
@@ -21,7 +27,7 @@ function resetServos() {
     console.log(`Reseting servos from ${servos[0]} to ${numServos}`)
     for (let index = 0; index < numServos; index++) {
         console.log(`Reseting servo ${index}`);
-        fetch(`/?servo=${index}&position=${zeroPosition}`);      
+        fetch(`/?servo=${index}&position=${zeroPosition}`);
     }
 }
 
@@ -31,20 +37,20 @@ function removeAllActive() {
         servosLi[index].classList.remove('active');
     }
 }
-function playVideo(video){
-    
-    if(document.querySelector("#playPause").innerHTML==='Play Video'){
-        document.querySelector("#playPause").innerHTML='Pause Video';
-        fetch('/?playVideo=true'); 
-    }else{
-        document.querySelector("#playPause").innerHTML='Play Video';
-        fetch('/?pauseVideo=true'); 
+function playVideo(video) {
+
+    if (document.querySelector("#playPause").innerHTML === 'Play Video') {
+        document.querySelector("#playPause").innerHTML = 'Pause Video';
+        fetch('/?playVideo=true');
+    } else {
+        document.querySelector("#playPause").innerHTML = 'Play Video';
+        fetch('/?pauseVideo=true');
     }
 
 }
-function volumeUp(){
+function volumeUp() {
     fetch('/?volumeUp=true');
 }
-function volumeDown(){
+function volumeDown() {
     fetch('/?volumeDown=true');
 }

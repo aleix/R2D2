@@ -10,9 +10,9 @@ function printPosition(obj) {
     let position = 1600 + (obj.value * 10);
     console.log('position: ' + position);
     if (position > 2000) {
-         position = 2000;
-     }
-    
+        position = 2000;
+    }
+
     let degrees = obj.value * -1;
     let servo = parseInt(obj.id.slice(5));//removing servo from id
     removeAllActive();
@@ -20,6 +20,18 @@ function printPosition(obj) {
     console.log(`Moving servo ${servo} to position ${position} - Aperture of ${obj.value} % `);
     fetch(`/?servo=${servo}&position=${position}`);
     document.querySelector(".line").style.transform = `rotate(${degrees}deg)`;
+}
+function motorHeadTurnRight() {
+    console.log('Motor Head Turn Right');
+    fetch('/?motorHead=turnRight')
+}
+function motorHeadTurnLeft() {
+    console.log('Motor Head Turn Left');
+    fetch('/?motorHead=turnLeft')
+}
+function motorHeadStop(){
+    console.log('Motor Head Stop');
+    fetch('/?motorHead=stop')
 }
 function resetServos() {
     let numServos = servos.length;

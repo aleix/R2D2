@@ -43,6 +43,16 @@ function resetServos() {
     }
 }
 
+function blinkLedStart(){
+    console.log('start blinking led');
+    fetch(`/?ledBlink=true`);
+}
+
+function blinkLedStop(){
+    console.log('stop blinking led');
+    fetch(`/?ledBlink=false`);
+}
+
 function removeAllActive() {
     let servosLi = document.querySelectorAll('.servos li');
     for (let index = 0; index < servosLi.length; index++) {

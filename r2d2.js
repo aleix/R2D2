@@ -33,7 +33,7 @@ const player = Omx('/home/pi/video.mp4');
 player.pause();
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.send("Look in /static to play with R2D2");
     let channel = parseInt(req.query.servo) || null;
     let pulseLength = parseInt(req.query.position) || null;
     let playVideo = req.query.playVideo || null;
@@ -41,7 +41,15 @@ app.get("/", (req, res) => {
     let volumeDown = req.query.volumeDown || null;
     let volumeUp = req.query.volumeUp || null;
     let motorHead = req.query.motorHead || null;
+    let ledBlink = req.query.ledBlink || null;
 
+    if (ledBlink) {
+        console.log('Start Blinking Led');
+        blinkLED();
+    } else {
+        console.log('Stop Blinking Led');
+        endBlink();
+    }
     //controlling motorHead
     if (motorHead === "turnRight") {
         // if (blinkInterval!= null) {
@@ -50,7 +58,7 @@ app.get("/", (req, res) => {
         console.log('Turn right motor head');
         M1A.writeSync(1);
         M1B.writeSync(0);
-       // blinkInterval = setInterval(blinkLED, 400); //run the blinkLED function every 250ms
+        // blinkInterval = setInterval(blinkLED, 400); //run the blinkLED function every 250ms
     }
     if (motorHead === "turnLeft") {
         // if (blinkInterval!= null) {
@@ -67,7 +75,7 @@ app.get("/", (req, res) => {
         M1B.writeSync(0);
         //M1A.unexport();
         //M1B.unexport();
-       // endBlink();
+        // endBlink();
     }
     if (Number.isInteger(channel) && Number.isInteger(pulseLength)) {
         console.log("servo: " + channel + " posicio: " + pulseLength);
@@ -91,7 +99,7 @@ app.get("/", (req, res) => {
         player.volUp();
         console.log("Volume Up");
     }
-   
+
 });
 
 // blink led

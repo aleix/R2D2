@@ -47,8 +47,8 @@ app.get("/", (req, res) => {
         console.log('Start Blinking Led');
         blinkLED();
     } else {
-        console.log('Stop Blinking Led');
-        endBlink();
+      //  console.log('Stop Blinking Led');
+        //endBlink();
     }
     //controlling motorHead
     if (motorHead === "turnRight") {
